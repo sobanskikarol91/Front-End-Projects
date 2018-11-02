@@ -6,7 +6,54 @@ body
 
 #container
 {
-	width: 900px;
+	width: 950px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#board
+{
+	width: 650px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-allign: center;
+	font-size: 48px;
+	min-height: 60px;
+
+}
+
+#gallow
+{
+	float: left;
+	width: 450px;
+	text-align: center;
+	min-height: 280px;
+}
+
+#alphabet
+{
+	float:left;
+	width: 450px;
+	text-align: center;
+	min-height: 280px; 
+}
+
+.letter
+{
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	padding: 5px;
+	margin: 5px;
+	border: 3px solid gray;
+	float: left;
+	cursor: pointer;
+
+}
+
+.letter:hover
+{
+	background-color: #222222;
+	color: white;
+	border-style: 3px solid whitye;
 }
