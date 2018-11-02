@@ -2,6 +2,8 @@ body
 {
 	background: black;
 	color: lightgray;
+	font-family: 'Inconsolata', monospace;
+	font-weight: 700;
 }
 
 #container
@@ -19,7 +21,6 @@ body
 	text-allign: center;
 	font-size: 48px;
 	min-height: 60px;
-
 }
 
 #gallow

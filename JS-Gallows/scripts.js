@@ -75,13 +75,28 @@ String.prototype.changeLetter = function(index, letter)
 	else return this.substr(0, index) + letter + this.substr(index + 1);
 }
 
+
 function check(nr)
 {
+	var element = "let" + nr;
+
+	document.getElementById(element).style.background = "#003300";
+	document.getElementById(element).style.color = "#00C000";
+	document.getElementById(element).style.border ="3px solid #00C000";
+	document.getElementById(element).style.cursor = "default";
+	var isChecked = false;
+
 	for(i=0;i<length;i++)
 	{
 		if(password.charAt(i) == letters[nr])
 			hiddenPassword = hiddenPassword.changeLetter(i, letters[nr]);
+		isChecked = true;
 	}
+
+	if(isChecked)
+		;
+	else
+		;
 	write_password();
 }
 window.onload = start;
