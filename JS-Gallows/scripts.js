@@ -1,10 +1,11 @@
-var password = "Bez pracy nie ma kolaczy";
+var password = "kocham Kotka";
 password = password.toUpperCase();
 
 var hiddenPassword = "";
 var length = password.length;
 
 var letters = new Array(35);
+var wrong_answers=0;
 
 letters[0] = "A";
 letters[1] = "Ą";
@@ -105,6 +106,10 @@ function check(nr)
 		document.getElementById(element).style.color = "#C00000";
 		document.getElementById(element).style.border ="3px solid #C00000";
 		document.getElementById(element).style.cursor = "default";
+		wrong_answers++;
+
+		var img = "img/s" + wrong_answers + ".jpg";
+		document.getElementById("gallow").innerHTML = '<img src="' + img + '" alt=""/>';
 	}
 	write_password();
 }
