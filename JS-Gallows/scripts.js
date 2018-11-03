@@ -1,4 +1,4 @@
-var password = "kocham Kotka";
+var password = "Władca pierścieni";
 password = password.toUpperCase();
 
 var hiddenPassword = "";
@@ -6,6 +6,9 @@ var length = password.length;
 
 var letters = new Array(35);
 var wrong_answers=0;
+
+var yes = new Audio("yes.wav");
+var no = new Audio("no.wav");
 
 letters[0] = "A";
 letters[1] = "Ą";
@@ -80,8 +83,6 @@ String.prototype.changeLetter = function(index, letter)
 function check(nr)
 {
 	var element = "let" + nr;
-
-
 	var isChecked = false;
 
 	for(i=0;i<length;i++)
@@ -94,23 +95,63 @@ function check(nr)
 	}
 
 	if(isChecked)
-	{
-		document.getElementById(element).style.background = "#003300";
-		document.getElementById(element).style.color = "#00C000";
-		document.getElementById(element).style.border ="3px solid #00C000";
-		document.getElementById(element).style.cursor = "default";
-	}
+		correctLetter(element);
 	else
-	{
-		document.getElementById(element).style.background = "#330000";
-		document.getElementById(element).style.color = "#C00000";
-		document.getElementById(element).style.border ="3px solid #C00000";
-		document.getElementById(element).style.cursor = "default";
-		wrong_answers++;
+		wrongLetter(element);
 
-		var img = "img/s" + wrong_answers + ".jpg";
-		document.getElementById("gallow").innerHTML = '<img src="' + img + '" alt=""/>';
-	}
+	// win
+	if(password == hiddenPassword)
+		win();
+	else
+		checkFail(wrong_answers);
+
 	write_password();
 }
+
+function correctLetter(element)
+{
+	document.getElementById(element).style.background = "#003300";
+	document.getElementById(element).style.color = "#00C000";
+	document.getElementById(element).style.border ="3px solid #00C000";
+	document.getElementById(element).style.cursor = "default";
+	yes.play();
+}
+
+function wrongLetter(element)
+{
+	document.getElementById(element).style.background = "#330000";
+	document.getElementById(element).style.color = "#C00000";
+	document.getElementById(element).style.border ="3px solid #C00000";
+	document.getElementById(element).style.cursor = "default";
+	document.getElementById(element).setAttribute("onclick",";");
+	wrong_answers++;
+	no.play();
+
+	var img = "img/s" + wrong_answers + ".jpg";
+	document.getElementById("gallow").innerHTML = '<img src="' + img + '" alt=""/>';
+}
+
+function win()
+{
+	document.getElementById("alphabet").innerHTML = "Podano prawidlowe haslo: " + password + 
+	'<br/><br/><span class="reset" onclick="location.reload()">Zagraj Ponownie</span>';	
+	reset();
+}
+
+function checkFail(wrong_answers)
+{
+	if(wrong_answers >=9	)
+	{
+		document.getElementById("alphabet").innerHTML = "Przegrales! " +
+		'<br/><br/><span class="reset" onclick="location.reload()">Zagraj Ponownie</span>';
+		reset()
+	}
+}
+
+function reset()
+{
+	'<br/><br/><span class="reset" onclick="location.reload()">Zagraj Ponownie</span>'	
+	wrong_answers=0;	
+}
+
 window.onload = start;

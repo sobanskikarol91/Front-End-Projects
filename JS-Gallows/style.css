@@ -58,3 +58,14 @@ body
 	color: white;
 	border-style: 3px solid whitye;
 }
+
+.reset
+{
+	color: green;
+	cursor: pointer;
+}
+
+.reset:hover
+{
+	color:white;
+}
