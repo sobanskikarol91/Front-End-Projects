@@ -1,0 +1,26 @@
+body
+{
+	margin: 0;
+	background-color:  #2F333f;
+	color:  #efefef;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 17px;
+}
+
+h1.logo
+{
+	font-size: 44px;
+	font-weight: 700;
+	color: #ddd;
+	text-align:  center;
+	text-transform:  uppercase;
+	letter-spacing:  5px;
+	margin-top: 50px;
+	margin-bottom: 40px;
+}
+
+nav
+{
+	background-color:  #1c74b2;
+	text-align: center;
+}
